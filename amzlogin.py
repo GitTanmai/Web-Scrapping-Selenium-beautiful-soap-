@@ -15,11 +15,11 @@ id2=driver.find_element_by_xpath( '//*[@id="nav-signin-tooltip"]/a/span').click(
 time.sleep(10)
 
 # Opening page to enter mail id
-driver.find_element_by_xpath("//*[@id='ap_email']").send_keys('tm81739@gmail.com')
+driver.find_element_by_xpath("//*[@id='ap_email']").send_keys('Enter email')
 time.sleep(2)
 driver.find_element_by_xpath("//*[@id='continue']").click()
 
 #Opening page to enter password
-driver.find_element_by_xpath("//*[@id='ap_password']").send_keys('Abcd1234*')
+driver.find_element_by_xpath("//*[@id='ap_password']").send_keys('Please enter password')
 time.sleep(2)
 driver.find_element_by_xpath("//*[@id='signInSubmit']").click()
