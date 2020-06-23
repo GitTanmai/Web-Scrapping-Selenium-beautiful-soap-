@@ -12,20 +12,22 @@ def data_file_create():
 #        final_data = {}
 #        data_store = {}
 	data_ls = []
-
-	for i,k in enumerate(data['results']):
-	#print('sadadadadad      ',k['name'])
-
-		data_ls.append({'Outlet Name': k['name'], 'Outlet Address': k['address1'],
-                                'Outlet City': k['city']['short_name'],
-                                'Outlet State': k['state']['short_name'], 'Outlet Zip Code': k['zipcode'],
-                                'place': 'Florida'})
-	df_obj = pd.DataFrame(
-            columns=['Outlet Name', 'Outlet Address', 'Outlet City', 'Outlet State', 'Outlet Zip Code'])
-	output = df_obj.append(data_ls, ignore_index=True)   
+	try:
+		for i,k in enumerate(data['results']):
+		#print('sadadadadad      ',k['name'])
+	
+			data_ls.append({'Outlet Name': k['name'], 'Outlet Address': k['address1'],
+                                	'Outlet City': k['city']['short_name'],
+                                	'Outlet State': k['state']['short_name'], 'Outlet Zip Code': k['zipcode'],
+                                	'place': 'Florida'})
+		df_obj = pd.DataFrame(
+            	columns=['Outlet Name', 'Outlet Address', 'Outlet City', 'Outlet State', 'Outlet Zip Code'])
+		output = df_obj.append(data_ls, ignore_index=True)   
+	except:
+		print('Error while scraping data')
 	return output
 o=data_file_create()
 print(o)
 o.to_excel(
             os.path.join( 'Wine_Spectator_' + 'Florida' + '_' + str(datetime.date(datetime.now()))[-5:] + '.xlsx'),
-            index=False)
+            index=False)	
